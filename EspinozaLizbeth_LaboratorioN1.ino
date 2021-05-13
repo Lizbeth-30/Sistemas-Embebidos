@@ -42,6 +42,11 @@ void setup(){
 }
  
 void loop(){
+    //recibir mensajes
+  if(Serial.available()>0){ //revisa si existen datos en el puerto cx serial
+    dato=Serial.readString();
+    Serial.println(dato);// si los tienes, almacena el dato en variable
+  }
   char key = keypad.getKey();
   if (key){
    lcd.setCursor(4+var,1);
