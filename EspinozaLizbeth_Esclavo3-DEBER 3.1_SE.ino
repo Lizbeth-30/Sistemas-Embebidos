@@ -21,24 +21,18 @@ void loop() {
 void receiveEvent (int bytes){
   while(Wire.available()){
     dato=Wire.read();
-    if(dato=='c') {
-      digitalWrite(led1,HIGH);
-      digitalWrite(led2,LOW);
-      digitalWrite(led3,LOW);
-      delay(300);
-      digitalWrite(led1,LOW);
-      digitalWrite(led2,HIGH);
-      digitalWrite(led3,LOW);
-      delay(300);
-      digitalWrite(led1,LOW);
-      digitalWrite(led2,LOW);
-      digitalWrite(led3,HIGH);
-      delay(300);
+    if(dato=='C') {
+      digitalWrite(led3,HIGH);       //Enciende el led3
+      delay(50000);
+      digitalWrite(led2,HIGH);   //Enciende el led2
+      delay(50000);
+      digitalWrite(led1,HIGH);   //Enciende el led1
+      delay(50000);
+      digitalWrite(led3,LOW);  //Apaga el led3
+      digitalWrite(led2,LOW);  //Apaga el led2
+      digitalWrite(led1,LOW);  //Apaga el led1
+      delay(50000);
+
     }
-    else
-      digitalWrite(led1,LOW);
-      digitalWrite(led2,LOW);
-      digitalWrite(led3,LOW);
-      delay(300);
   }
 }

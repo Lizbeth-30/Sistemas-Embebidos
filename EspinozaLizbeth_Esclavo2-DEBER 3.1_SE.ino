@@ -6,7 +6,7 @@ const int led2=9;               //led1 en pin9
 const int led3=10;              //led1 en pin10
 
 void setup() {
-  Wire.begin(2);                //id de esclavo
+  Wire.begin(3);                //id de esclavo
   Wire.onReceive(receiveEvent); //evento de rececpcion
   Serial.begin(9600);
   pinMode(led1,OUTPUT);         //pin8 como salida
@@ -21,23 +21,18 @@ void loop() {
 void receiveEvent (int bytes){
   while(Wire.available()){
     dato=Wire.read();
-    if(dato=='2') {
-      digitalWrite(led1,HIGH);
-      digitalWrite(led2,LOW);
-      digitalWrite(led3,LOW);
-      delay(300);
-      digitalWrite(led1,LOW);
-      digitalWrite(led2,HIGH);
-      digitalWrite(led3,LOW);
-      delay(300);
-      digitalWrite(led1,LOW);
-      digitalWrite(led2,LOW);
-      digitalWrite(led3,HIGH);
-      delay(300);
-      digitalWrite(led1,LOW);
-      digitalWrite(led2,LOW);
-      digitalWrite(led3,LOW);
-      delay(300);
+    if(dato=='B') {
+      digitalWrite(led3,HIGH);       //Enciende el led3
+      delay(50000);
+      digitalWrite(led2,HIGH);   //Enciende el led2
+      delay(50000);
+      digitalWrite(led1,HIGH);   //Enciende el led1
+      delay(50000);
+      digitalWrite(led3,LOW);  //Apaga el led3
+      digitalWrite(led2,LOW);  //Apaga el led2
+      digitalWrite(led1,LOW);  //Apaga el led1
+      delay(50000);
+
     }
   }
 }
