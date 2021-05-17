@@ -25,18 +25,6 @@ void setup() {
 void loop() {
   if(Serial.available()>0){     //verifica que exista datos
     dato=Serial.read();         //almacena el dato en la variable
-    Wire.beginTransmission(1);  //empieza la comunicación I2C
-    Wire.write(dato);           //envio dato
-    Wire.endTransmission();     //termina la comunicación I2C
-  } 
-    if(Serial.available()>0){     //verifica que exista datos
-    dato=Serial.read();         //almacena el dato en la variable
-    Wire.beginTransmission(2);  //empieza la comunicación I2C
-    Wire.write(dato);           //envio dato
-    Wire.endTransmission();     //termina la comunicación I2C
-  } 
-   if(Serial.available()>0){     //verifica que exista datos
-    dato=Serial.read();         //almacena el dato en la variable
     Wire.beginTransmission(3);  //empieza la comunicación I2C
     Wire.write(dato);           //envio dato
     Wire.endTransmission();     //termina la comunicación I2C
